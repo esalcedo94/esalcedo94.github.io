@@ -1,6 +1,6 @@
 
 $(() => {
-  const $picHolder = $(".meal-preview");
+  const $container = $(".container");
   for (let i = 1; i <= 4; i++) {
     $.ajax({
       url: "https://www.themealdb.com/api/json/v1/1/random.php"
@@ -20,7 +20,7 @@ $(() => {
   
   
   $('input[type="submit"]').on('click', () => {
-    $picHolder.empty();
+    $container.empty();
     
     // let userInput = event.target.value.toUpperCase();
     const userInput = $('input[type="text"]').val();
@@ -38,16 +38,23 @@ $(() => {
         //   }
         // })
         for (let i = 0; i < data.meals.length; i++) {
-          console.log(data.meals[i]);
-          const mealName = data.meals[i].strMeal;
-          console.log(mealName);
-          const $mealTitle = $("<h3>").html(mealName);
-          $mealTitle.appendTo($picHolder);
-          const $instructionsButton = $("<button>").text("Instructions");
-          $instructionsButton.appendTo($mealTitle);
+          const $mealContainer = $("<div>").addClass("meal").appendTo($container);
+          // console.log(data.meals[i]);
+          const mealImage = data.meals[i].strMealThumb;
+          // console.log(mealName);
+          const $mealTitle = $('<input type="image" src="">');
+          $mealTitle.attr('src' , mealImage)
+          $mealTitle.appendTo($mealContainer);
+          // const $instructionsButton = $("<button>").text("Instructions");
+          // $instructionsButton.appendTo($mealTitle);
+          // const mealImage = data.meals[i].strMealThumb;
+          const mealYt = data.meals[i].strYoutube;
           const mealInstructions = data.meals[i].strInstructions;
-          const $instructions = $("<p>").html(mealInstructions).appendTo($mealTitle).hide();
-          $instructionsButton.on("click", () => {
+          const $instructions = $("<p>").html(mealInstructions).appendTo($mealContainer).hide();
+          // const $mealImage = ('<img id ="mealImg" src=""/>');
+          // $("#mealImg").attr('src', mealImage);
+          // $("#mealImg").appendTo($mealTitle).hide();
+          $('input[type="image"]').on("click", () => {
             $instructions.toggle();
           })
         }
