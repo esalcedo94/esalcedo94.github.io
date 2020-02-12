@@ -54,7 +54,7 @@ $(() => {
           // const $mealImage = ('<img id ="mealImg" src=""/>');
           // $("#mealImg").attr('src', mealImage);
           // $("#mealImg").appendTo($mealTitle).hide();
-          $('input[type="image"]').on("click", () => {
+          $('input[src="' + mealImage + '"]').on("click", () => {
             $instructions.toggle();
           })
         }
