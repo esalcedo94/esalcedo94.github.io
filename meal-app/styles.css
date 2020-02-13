@@ -11,7 +11,9 @@ h1{
 }
 
 h3{
-  text-align: left;
+  font-family: "Arimo" ,sans-serif;
+  text-align: center;
+  margin: 1em auto auto auto;
 }
 
 input[type=text]{
@@ -40,10 +42,6 @@ input[type=submit]:hover{
   flex-wrap: wrap;
   margin-bottom: 50px;;
 }
-
-/*input[type=image]{
-  width: 35%;
-}*/
 
 img{
   margin: auto;
@@ -78,7 +76,6 @@ button:hover{
   position: relative;
 }
 
-/* Tooltip text */
 .meal .tooltipText {
   visibility: hidden;
   width: 120px;
