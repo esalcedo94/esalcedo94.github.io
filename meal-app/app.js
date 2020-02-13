@@ -1,6 +1,10 @@
 
 $(() => {
     $('input[type="submit"]').on('click',  showData);
+    homePage();
+})
+
+const homePage = () => {
   for (let i = 1; i <= 4; i++) {
     $.ajax({
       url: "https://www.themealdb.com/api/json/v1/1/random.php"
@@ -17,7 +21,7 @@ $(() => {
       }
     )
   }
-})
+}
 
 const showData = () => {
   const $container = $(".container");
