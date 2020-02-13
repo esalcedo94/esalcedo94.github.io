@@ -33,11 +33,12 @@ input[type=submit]:hover{
   background-color: #3f2112;
   color: white;
 }
+
 .container{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 150px;
+  margin-bottom: 50px;;
 }
 
 /*input[type=image]{
@@ -45,17 +46,19 @@ input[type=submit]:hover{
 }*/
 
 img{
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  margin: auto;
+  width: 35%;
 }
 
 .meal{
-  margin: 15px;
+  margin: .3em;
+  width: 30%;
+  align-self: center;
 }
 
 .meal input{
-  width: 30%;
+  width: 60%;
+
 }
 
 button{
@@ -65,14 +68,37 @@ button{
   color: white;
   cursor: pointer;
 }
+
 button:hover{
   background-color: yellow;
   color: black;
 }
 
+.meal {
+  position: relative;
+}
+
+/* Tooltip text */
+.meal .tooltipText {
+  visibility: hidden;
+  width: 120px;
+  background-color: lightgrey;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  position: absolute;
+  z-index: 1;
+}
+
+
+.meal:hover .tooltipText {
+  visibility: visible;
+}
+
 
 p{
-  /*color: lightgrey;*/
- line-height: 25px;
- font-size: 18px;
+ line-height: 15px;
+ font-size: 12px;
 }

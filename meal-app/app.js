@@ -8,7 +8,7 @@ $(() => {
       (data) => {
         let picURL = data.meals[0].strMealThumb;
         let imgId =data.meals[0].strMeal;
-        // console.log(picURL);
+        $("#img" + i).attr('title' , imgId);
         $("#img" + i).attr('src' , picURL);
         $("#img" + i).attr('id' , imgId);
       },
@@ -41,6 +41,9 @@ $(() => {
           const $mealContainer = $("<div>").addClass("meal").appendTo($container);
           // console.log(data.meals[i]);
           const mealImage = data.meals[i].strMealThumb;
+          const mealName = data.meals[i].strMeal;
+          const $tooltipText = $("<span>").addClass("tooltipText").text(mealName);
+          $tooltipText.appendTo($mealContainer)
           // console.log(mealName);
           const $mealTitle = $('<input type="image" src="">');
           $mealTitle.attr('src' , mealImage)
@@ -51,11 +54,11 @@ $(() => {
           const mealYt = data.meals[i].strYoutube;
           const mealInstructions = data.meals[i].strInstructions;
           const $instructions = $("<p>").html(mealInstructions).appendTo($mealContainer).hide();
-          // const $mealImage = ('<img id ="mealImg" src=""/>');
-          // $("#mealImg").attr('src', mealImage);
-          // $("#mealImg").appendTo($mealTitle).hide();
+          const $link =  $('<a href="'+ mealYt +'">Youtube Video</a>');
+          $link.appendTo($mealContainer).hide();
           $('input[src="' + mealImage + '"]').on("click", () => {
             $instructions.toggle();
+            $link.toggle();
           })
         }
       },
